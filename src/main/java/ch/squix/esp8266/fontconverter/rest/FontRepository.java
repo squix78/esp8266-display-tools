@@ -51,7 +51,9 @@ public class FontRepository {
 
     public static List<String> listFontFiles() throws URISyntaxException, IOException, FontFormatException {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        URI uri = FontRepository.class.getResource("/apache").toURI();
+        File fontFile = new File(FontRepository.class.getClassLoader().getResource("/apache/chewy/Chewy-Regular.ttf").getFile());
+        ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontFile));
+        /*URI uri = FontRepository.class.getResource("/apache").toURI();
         Path myPath;
         if (uri.getScheme().equals("jar")) {
             FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.<String, Object>emptyMap());
@@ -70,7 +72,7 @@ public class FontRepository {
                     System.out.println("Failed to register font: " + e);
                 }
             }
-        }
+        }*/
         return new ArrayList<>();
     }
 
