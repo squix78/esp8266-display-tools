@@ -64,7 +64,11 @@ public class FontRepository {
             Path path = it.next();
             if (path.toString().endsWith("ttf")) {
                 System.out.println(path);
-                //ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, path.toFile()));
+                try {
+                    ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, path.toFile()));
+                } catch (Exception e) {
+                    System.out.println("Failed to register font: " + e);
+                }
             }
         }
         return new ArrayList<>();
