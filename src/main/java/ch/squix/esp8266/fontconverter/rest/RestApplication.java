@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+
 import ch.squix.esp8266.fontconverter.rest.fontarray.BinaryFontResource;
 import org.restlet.Application;
 import org.restlet.Restlet;
@@ -16,16 +17,20 @@ import ch.squix.esp8266.fontconverter.rest.fontfamily.FontFamilyResource;
 import ch.squix.esp8266.fontconverter.rest.ping.PingResource;
 import ch.squix.esp8266.fontconverter.rest.time.TimeResource;
 import ch.squix.esp8266.fontconverter.rest.xbm.preview.XbmPreviewResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RestApplication extends Application {
 
+
+    Logger logger = LoggerFactory.getLogger(RestApplication.class);
+
     @Override
     public Restlet createInboundRoot() {
-        System.out.println("Arrived in Restlet registry");
         try {
             FontRepository.registerResourceFonts();
         } catch (URISyntaxException e) {
-            e.printStackTrace();
+            logger.error("Failed to register fonts", e);
         }
         // Create a router Restlet that routes each call to a
         // new instance of HelloWorldResource.

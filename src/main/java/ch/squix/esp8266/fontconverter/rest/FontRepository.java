@@ -1,5 +1,8 @@
 package ch.squix.esp8266.fontconverter.rest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -17,19 +20,21 @@ import java.util.stream.Stream;
 
 public class FontRepository {
 
+    private static Logger logger = LoggerFactory.getLogger(FontRepository.class);
+
     public static void registerResourceFonts() throws URISyntaxException {
         List<File> fontNames = new ArrayList<>();
 
         File dir = new File(FontRepository.class.getClassLoader().getResource("apache").getFile());
-        System.out.println("Font directory: " + dir);
+        logger.info("Font directory: {}", dir);
         parseFontNames(fontNames, dir);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         for (File file : fontNames) {
-            System.out.println(file.getName());
+            logger.info("Checking font file {}", file.getName());
             try {
                 ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, file));
             } catch (IOException | FontFormatException e) {
-                // Handle exception
+                logger.error("Registering fonts failed", e);
             }
         }
     }
