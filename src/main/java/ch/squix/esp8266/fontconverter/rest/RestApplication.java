@@ -25,10 +25,6 @@ public class RestApplication extends Application {
             FontRepository.registerResourceFonts();
         } catch (URISyntaxException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
         }
         // Create a router Restlet that routes each call to a
         // new instance of HelloWorldResource.
