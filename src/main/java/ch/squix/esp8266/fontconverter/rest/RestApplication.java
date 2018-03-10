@@ -21,6 +21,7 @@ public class RestApplication extends Application {
 
     @Override
     public Restlet createInboundRoot() {
+        System.out.println("Arrived in Restlet registry");
         try {
             FontRepository.registerResourceFonts();
         } catch (URISyntaxException e) {
