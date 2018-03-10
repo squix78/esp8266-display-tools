@@ -24,7 +24,7 @@ public class FontFamilyResource extends ServerResource {
 
         for (String fontFamilyName : graphicEnvironment.getAvailableFontFamilyNames()) {
             FontFamilyDto dto = new FontFamilyDto();
-            dto.setName("XX" + fontFamilyName);
+            dto.setName(fontFamilyName);
             fonts.add(dto);
         }
         return fonts;
