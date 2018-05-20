@@ -149,14 +149,16 @@ public class RestApplication extends Application {
 
     @Override
     public Restlet createInboundRoot() {
-        try {
+
             for (String font : fonts) {
-                registerFont(font);
+                try {
+                    registerFont(font);
+                } catch (Exception e) {
+                    logger.error("Failed to register fonts", e);
+                }
             }
 
-        } catch (Exception e) {
-            logger.error("Failed to register fonts", e);
-        }
+
         // Create a router Restlet that routes each call to a
         // new instance of HelloWorldResource.
         Router router = new Router(getContext());
