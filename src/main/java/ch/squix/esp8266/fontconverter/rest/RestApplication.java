@@ -28,6 +28,7 @@ public class RestApplication extends Application {
 
     private final static String fonts [] = {
             "/meteocons/Meteocons.ttf",
+            "/meteocons/Moonphases.ttf",
             "/apache/redressed/Redressed-Regular.ttf",
             "/apache/opensanscondensed/OpenSansCondensed-Bold.ttf",
             "/apache/opensanscondensed/OpenSansCondensed-LightItalic.ttf",
