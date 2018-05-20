@@ -2,6 +2,7 @@ package ch.squix.esp8266.fontconverter.rest;
 
 import java.awt.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 
 
@@ -28,8 +29,14 @@ public class RestApplication extends Application {
     @Override
     public Restlet createInboundRoot() {
         try {
+
             FontRepository.registerResourceFonts();
-        } catch (URISyntaxException e) {
+            InputStream is = RestApplication.class.getResourceAsStream("/meteocons/Meteocons.ttf");
+            Font fileFont = Font.createFont(Font.TRUETYPE_FONT, is);
+            GraphicsEnvironment ge =
+                    GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(fileFont);
+        } catch (Exception e) {
             logger.error("Failed to register fonts", e);
         }
         // Create a router Restlet that routes each call to a
