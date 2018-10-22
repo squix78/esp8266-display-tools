@@ -20,7 +20,7 @@ public class FontConverterV2 {
     private BufferedImage image;
 
     public FontConverterV2(Font font) {
-        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_RGB);
+        image = new BufferedImage(250, 250, BufferedImage.TYPE_INT_RGB);
         g = image.getGraphics();
         g.setFont(font);
     }

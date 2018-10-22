@@ -40,7 +40,7 @@ public class FontConverterV3 {
 
 
     public FontConverterV3(Font font) {
-        BufferedImage image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(250, 250, BufferedImage.TYPE_INT_RGB);
 
         g = (Graphics2D) image.getGraphics();
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
