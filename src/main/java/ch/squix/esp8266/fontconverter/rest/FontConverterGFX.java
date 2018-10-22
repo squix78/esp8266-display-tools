@@ -42,7 +42,7 @@ public class FontConverterGFX {
 
 
     public FontConverterGFX(Font font) {
-        image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+        image = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_RGB);
         g = (Graphics2D) image.getGraphics();
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
@@ -225,7 +225,7 @@ public class FontConverterGFX {
     public BufferedImage drawLetter(char code) {
         Rectangle bounds = getBoundingBox(code);
         g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 450, 250);
+        g.fillRect(0, 0, 1000, 1000);
         g.setColor(Color.BLACK);
         g.drawString(String.valueOf(code),  - bounds.x, - bounds.y);
         return image;
