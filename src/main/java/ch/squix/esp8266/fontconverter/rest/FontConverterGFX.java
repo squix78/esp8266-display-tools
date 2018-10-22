@@ -184,21 +184,7 @@ public class FontConverterGFX {
 
 
         System.out.println("Char: " + String.valueOf(code) + ", " + glyph);
-        /*for (int y = 0; y < height; y++) {
-            System.out.println();
-            for (int x = 0; x < width; x++) {
-                int currentByte = character[(x + y * width)/ 8];
-                int currentBit = (x + y * width) % 8;
-                if (letterImage.getRGB(x, y) == Color.BLACK.getRGB()) {
-                    System.out.print("X");
-                    currentByte = currentByte | (1 << currentBit);
-                } else {
-                    currentByte = currentByte & ~(1 << currentBit);
-                    System.out.print("_");
-                }
-                character[(x + y * width) / 8] = (byte) currentByte;
-            }
-        }*/
+
         int bitNum = 0;
         for (int y = 0; y < height; y++) {
             System.out.println();
@@ -207,10 +193,10 @@ public class FontConverterGFX {
                 int bitPos = 7 - (bitNum % 8);
                 int currentByte = character[byteNum];
                 if (image.getRGB(x, y) == Color.BLACK.getRGB()) {
-                    System.out.print("X");
+                    //System.out.print("X");
                     currentByte = currentByte | (1 << bitPos);
                 } else {
-                    System.out.print("_");
+                    //System.out.print("_");
                     currentByte = currentByte & ~(1 << bitPos);
                 }
                 character[byteNum] = (byte) currentByte;

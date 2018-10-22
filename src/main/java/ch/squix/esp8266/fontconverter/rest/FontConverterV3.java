@@ -40,7 +40,12 @@ public class FontConverterV3 {
 
 
     public FontConverterV3(Font font) {
-        BufferedImage image = new BufferedImage(250, 250, BufferedImage.TYPE_INT_RGB);
+        initBufferedImage(1, 1, font);
+        initBufferedImage(getMaxCharWidth() + 20, getMaxCharHeight() + 20, font);
+    }
+
+    private void initBufferedImage(int width, int height, Font font) {
+        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         g = (Graphics2D) image.getGraphics();
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
@@ -60,9 +65,9 @@ public class FontConverterV3 {
 
         StringBuilder builder = new StringBuilder();
 
-        FontConverterV3 app = new FontConverterV3(new Font("Times", Font.PLAIN, 30));
+        FontConverterV3 app = new FontConverterV3(new Font("Times", Font.PLAIN, 100));
         //app.writeBinaryFontFile("TimesRegular30.mxf");
-        //app.printLetterData(builder);
+        app.printLetterData(builder);
         /*app = new FontConverterV3(new Font("Meteocons", Font.PLAIN, 21));
         app.printLetterData(builder);
         app = new FontConverterV3(new Font("Meteocons", Font.PLAIN, 10));
@@ -84,7 +89,7 @@ public class FontConverterV3 {
             int letterWidth = letter.getWidth();
             int size = letter.getByteSize();
             String code = "" + ((int) letter.getCode());
-            if (letter.isVisable()) {
+            if (letter.isVisible()) {
                 writeBinaryJumpTable(os, code, lastJumpPoint, size, letterWidth);
                 lastJumpPoint += size;
             } else {
@@ -93,7 +98,7 @@ public class FontConverterV3 {
         }
 
         for (LetterData letter : letterList) {
-            if (letter.isVisable()) {
+            if (letter.isVisible()) {
                 for (int data : letter.getBytes()) {
                     os.write((byte) data);
                 }
@@ -124,7 +129,7 @@ public class FontConverterV3 {
             int letterWidth = letter.getWidth();
             int size = letter.getByteSize();
             String code = "" + ((int) letter.getCode());
-            if (letter.isVisable()) {
+            if (letter.isVisible()) {
                 writeJumpTable(builder, code, lastJumpPoint, size, letterWidth);
                 lastJumpPoint += size;
             } else {
@@ -136,7 +141,7 @@ public class FontConverterV3 {
         builder.append("\t// Font Data:\n");
 
         for (LetterData letter : letterList) {
-            if (letter.isVisable()) {
+            if (letter.isVisible()) {
                 builder.append("\t");
                 builder.append(letter.toString());
                 if ((int) letter.getCode() != END_CHAR - 1) {
@@ -292,7 +297,7 @@ public class FontConverterV3 {
             return height;
         }
 
-        public boolean isVisable() {
+        public boolean isVisible() {
             return visable;
         }
 
