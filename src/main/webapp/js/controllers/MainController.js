@@ -19,6 +19,9 @@ angular.module('FontConverter').controller('MainController',
 	  });
 
 	  $scope.getFontArray = function() {
+	  	 $scope.fontArray.fontArray = "";
+	  	 delete $scope.fontArray.$resolved;
+	  	 console.log($scope.fontArray);
 		 $scope.fontArray.$save();
 	  };
   });

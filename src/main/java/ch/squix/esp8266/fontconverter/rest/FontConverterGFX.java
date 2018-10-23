@@ -42,14 +42,18 @@ public class FontConverterGFX {
 
 
     public FontConverterGFX(Font font) {
-        image = new BufferedImage(250, 250, BufferedImage.TYPE_INT_RGB);
+        initBufferedImage(1, 1, font);
+        initBufferedImage((int) Math.round(getMaxCharWidth() * 1.2), (int) Math.round(getMaxCharHeight() * 1.2), font);
+    }
+
+    private void initBufferedImage(int width, int height, Font font) {
+        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         g = (Graphics2D) image.getGraphics();
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
         g.setFont(font);
         fontMetrics = g.getFontMetrics();
         baselineY = fontMetrics.getMaxAscent();
-
     }
 
     public Rectangle getBoundingBox(char c) {

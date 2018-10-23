@@ -41,7 +41,7 @@ public class FontConverterV3 {
 
     public FontConverterV3(Font font) {
         initBufferedImage(1, 1, font);
-        initBufferedImage(getMaxCharWidth() + 20, getMaxCharHeight() + 20, font);
+        initBufferedImage((int) Math.round(getMaxCharWidth() * 1.2), (int) Math.round(getMaxCharHeight() * 1.2), font);
     }
 
     private void initBufferedImage(int width, int height, Font font) {
