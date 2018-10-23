@@ -9,6 +9,13 @@
 <div name="fontForm" ng-show="isDataReady">
 	<div class="row">
 	  <div class="col-md-6">
+		  <div form-group">
+		  <label for="previewDisplay">Preview Display</label>
+		  <select required id="previewDisplay" class="form-control" ng-model="previewDisplay">
+			  <option value="OLED96">OLED 0.96" (128x64)</option>
+			  <option value="TFT24">TFT 2.4" (240x320)</option>
+		  </select>
+	    </div>
 		<div form-group">
 		   <label for="name">Font Family</label>
 		   <select required id="name" class="form-control" ng-model="fontArray.name">
@@ -53,7 +60,7 @@
 		</div>
 	  </div>
       <div class="col-md-6 form-group">
-		<img src="/rest/fontPreview/{{fontArray.name}}/{{fontArray.style}}/{{fontArray.size}}"/>
+		<img src="/rest/fontPreview/{{fontArray.name}}/{{fontArray.style}}/{{fontArray.size}}/{{previewDisplay}}"/>
       </div>
 	</div>
     <div class="row">

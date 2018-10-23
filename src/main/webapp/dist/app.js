@@ -40,6 +40,7 @@ angular.module('FontConverter').controller('MainController',
 	                   "2": {name:"Italic"},
 	                   "3": {name:"Bold & Italic"}
 	  };
+	  $scope.previewDisplay = "OLED96"
 	  $scope.fontArray = new FontArray();
 	  $scope.fontArray.name = "Dialog";
 	  $scope.fontArray.style = "0";

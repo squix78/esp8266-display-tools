@@ -41,7 +41,7 @@ public class XbmPreviewResource extends ServerResource {
         String url = URLDecoder.decode(urlParam, "utf8");
         BufferedImage oldImage = null;
 
-        oldImage = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("display.png"));
+        oldImage = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("OLED96.png"));
 
         BufferedImage newImage = new BufferedImage(oldImage.getWidth(), oldImage.getHeight(),
                 BufferedImage.TYPE_INT_ARGB);

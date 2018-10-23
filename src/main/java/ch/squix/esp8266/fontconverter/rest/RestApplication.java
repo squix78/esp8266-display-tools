@@ -170,7 +170,7 @@ public class RestApplication extends Application {
         router.attach("/fontFamilies", FontFamilyResource.class);
         router.attach("/fonts", FontResource.class);
         router.attach("/fontArray", FontArrayResource.class);
-        router.attach("/fontPreview/{fontName}/{fontStyle}/{fontSize}", FontPreviewResource.class);
+        router.attach("/fontPreview/{fontName}/{fontStyle}/{fontSize}/{previewDisplay}", FontPreviewResource.class);
         router.attach("/binaryFont/{fontName}/{fontStyle}/{fontSize}", BinaryFontResource.class);
         router.attach("/xbmPreview", XbmPreviewResource.class);
         router.attach("/time", TimeResource.class);
