@@ -206,7 +206,11 @@ public class RestApplication extends Application {
             "/dseg/DSEG7-Classic-MINI/DSEG7ClassicMini-Italic.ttf",
             "/dseg/DSEG7-Classic-MINI/DSEG7ClassicMini-RegularItalic.ttf",
             "/dseg/DSEG7-Classic-MINI/DSEG7ClassicMini-Bold.ttf",
-            "/dseg/DSEG7-Classic-MINI/DSEG7ClassicMini-LightItalic.ttf"
+            "/dseg/DSEG7-Classic-MINI/DSEG7ClassicMini-LightItalic.ttf",
+            "/orbitron/Orbitron-Black.ttf",
+            "/orbitron/Orbitron-Bold.ttf",
+            "/orbitron/Orbitron-Medium.ttf",
+            "/orbitron/Orbitron-Regular.ttf"
 
     };
 
