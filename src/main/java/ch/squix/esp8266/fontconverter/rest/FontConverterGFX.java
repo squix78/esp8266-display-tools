@@ -169,8 +169,7 @@ public class FontConverterGFX {
 
         Rectangle boundingBox = getBoundingBox(code);
         int height = Math.max(1, boundingBox.height);
-        int width = Math.max(1, boundingBox.width);
-
+        int width = Math.max(1, boundingBox.width + 1);
 
         GfxGlyph glyph = new GfxGlyph();
         glyph.setHeight(height);
